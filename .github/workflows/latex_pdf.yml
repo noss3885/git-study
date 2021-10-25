@@ -27,7 +27,7 @@ jobs:
 
       - name: Move to output
         run: |
-          mkdir output
+          mkdir -p output
           mv main.pdf output
 
       - name: Commit changes
