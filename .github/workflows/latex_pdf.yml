@@ -17,6 +17,11 @@ jobs:
         # uses: docker://paperist/alpine-texlive-ja
         run: docker pull paperist/texlive-ja:latest
 
+      - name: Download jlisting.sty
+        run: |
+          wget https://osdn.net/projects/mytexpert/downloads/26068/jlisting.sty.bz2
+          bunzip2 jlisting.sty.bz2
+
       - name: Make PDF
         run: docker run --rm -v $PWD:/workdir paperist/texlive-ja:latest latexmk main.tex
 
