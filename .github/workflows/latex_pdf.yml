@@ -13,9 +13,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-        # run: docker pull paperist/texlive-ja:latest
       - name: Pull docker
-        uses: docker://paperist/alpine-texlive-ja
+        # uses: docker://paperist/alpine-texlive-ja
+        run: docker pull paperist/texlive-ja:latest
 
       - name: Make PDF
         run: docker run --rm -v $PWD:/workdir paperist/texlive-ja:latest latexmk main.tex
