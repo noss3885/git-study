@@ -13,14 +13,14 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - name: Pull docker
         # run: docker pull paperist/texlive-ja:latest
+      - name: Pull docker
         uses: docker://paperist/alpine-texlive-ja
 
       - name: Make PDF
         run: docker run --rm -v $PWD:/workdir paperist/texlive-ja:latest latexmk main.tex
 
       - name: Commit changes
-      - uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v7
         with:
           default_author: github_actions
