@@ -2,7 +2,8 @@ name: compile LaTeX
 
 on:
   push:
-    - master
+    branches:
+      - master
 
 jobs:
   compile:
