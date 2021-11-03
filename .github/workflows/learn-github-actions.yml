@@ -11,3 +11,7 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+      - id: find-md
+        run: echo "::set-output name=find::$(find -name *.md)"
+        shell: bash
+      - run: echo ${{ steps.find-md.outputs.find }}
